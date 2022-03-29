@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import Image from "next/image";
+import SearchIcon from "@mui/icons-material/Search";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MenuIcon from "@mui/icons-material/Menu";
+import Link from "next/link";
 
 const Wrapper = styled.header`
   position: sticky;
@@ -40,9 +44,25 @@ const SearchBar = styled.div`
   margin-left: 0.8rem;
   margin-right: 0.8rem;
   background-color: #363840;
+
   &:hover {
     background-color: #4c505c;
   }
+`;
+const MenuItems = styled.div`
+  display: flex;
+  margin-left: 0.5rem;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+`;
+const MenuItem = styled.div`
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  border-width: 2px;
+  align-items: center;
+  border: 0.2rem solid white;
 `;
 
 const Header = () => {
@@ -56,7 +76,17 @@ const Header = () => {
         </Logo>
         <SiteName>مقصدشو</SiteName>
       </LogoContainer>
-      <SearchBar></SearchBar>
+      <SearchBar>
+        <SearchIcon></SearchIcon>
+      </SearchBar>
+      <MenuItems>
+        <MenuItem>
+          <MenuIcon></MenuIcon>
+          <Link href="/login">
+            <AccountCircleIcon></AccountCircleIcon>
+          </Link>
+        </MenuItem>
+      </MenuItems>
     </Wrapper>
   );
 };
