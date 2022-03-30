@@ -2,17 +2,16 @@ import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import axios from "axios";
+import ButtonLoader from "../components/ButtonLoader";
 import Button from "@mui/material/Button";
-import CircularProgress from "@mui/material/CircularProgress";
 
-const SignIn = () => {
+const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    alert("asdasd");
     const loginDto = {
       Email: email,
       Password: password,
@@ -51,16 +50,20 @@ const SignIn = () => {
       />
       <label htmlFor="Password">رمزعبور</label>
       <input type="password" onChange={(e) => setPassword(e.target.value)} />
-      <Button
+      <ButtonLoader
         variant="contained"
         type="submit"
-        disabled={loading ? true : false}
-      >
-        {loading && <CircularProgress size={14} />}
-        {!loading && "Click Me"}
-      </Button>
+        title="ورود"
+        loading={loading}
+      ></ButtonLoader>
+
+      <Link href="/register">
+        <Button variant="contained" color="success">
+          ثبت نام
+        </Button>
+      </Link>
     </form>
   );
 };
 
-export default SignIn;
+export default SignInForm;

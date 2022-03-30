@@ -1,14 +1,14 @@
 import { SignpostOutlined } from "@mui/icons-material";
 import React, { Fragment } from "react";
 import _SharedLayout from "../containers/_SharedLayout";
-import SignInForm from "../containers/SignInForm";
+import RegisterForm from "../containers/RegisterForm";
 
-function login() {
+function register() {
   return (
-    <_SharedLayout title="ورود">
-      <SignInForm></SignInForm>
+    <_SharedLayout title="ثبت نام">
+      <RegisterForm></RegisterForm>
     </_SharedLayout>
   );
 }
 
-export default login;
+export default register;
