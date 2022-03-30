@@ -1,8 +1,9 @@
-const theme = {
-  colors: {
-    blue: "#0074d9",
-    red: "#ff4136",
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ["IRANSans"].join(","),
   },
-};
+});
 
 export default theme;

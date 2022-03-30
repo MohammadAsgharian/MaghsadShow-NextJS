@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "@mui/material/styles";
 import theme from "../configs/theme";
 
 const MyApp = ({ Component, pageProps }) => {
