@@ -90,7 +90,7 @@ const Register = () => {
         variant="contained"
         type="submit"
         title="ثبت نام"
-        loading={loading}
+        loading={true}
       ></ButtonLoader>
     </form>
   );
