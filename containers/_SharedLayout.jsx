@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 const _SharedLayout = (props) => {
-  console.log("props", props);
   return (
     <>
       <Head>

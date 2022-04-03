@@ -5,9 +5,9 @@ import RegisterForm from "../containers/RegisterForm";
 
 function register() {
   return (
-    <_SharedLayout title="ثبت نام">
+    <div>
       <RegisterForm></RegisterForm>
-    </_SharedLayout>
+    </div>
   );
 }
 
