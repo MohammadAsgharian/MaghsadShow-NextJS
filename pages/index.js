@@ -1,4 +1,4 @@
-import Header from "../containers/Header/Header";
+import Header from "../containers/Header";
 import _SharedLayout from "../containers/_SharedLayout";
 
 export default function Home() {

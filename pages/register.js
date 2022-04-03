@@ -1,12 +1,12 @@
 import { SignpostOutlined } from "@mui/icons-material";
 import React, { Fragment } from "react";
 import _SharedLayout from "../containers/_SharedLayout";
-import RegisterForm from "../containers/RegisterForm";
+import Register from "../containers/Register";
 
 function register() {
   return (
     <div>
-      <RegisterForm></RegisterForm>
+      <Register></Register>
     </div>
   );
 }

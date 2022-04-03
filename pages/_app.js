@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../configs/theme";
+import { wrapper } from "../redux/store";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
@@ -10,4 +11,4 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
