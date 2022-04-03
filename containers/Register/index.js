@@ -84,13 +84,13 @@ const Register = () => {
         type="password"
         id="Password_field"
         name="Password"
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={onChange}
       />
       <ButtonLoader
         variant="contained"
         type="submit"
         title="ثبت نام"
-        loading={true}
+        loading={false}
       ></ButtonLoader>
     </form>
   );
