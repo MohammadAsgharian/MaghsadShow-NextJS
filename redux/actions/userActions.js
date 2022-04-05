@@ -18,7 +18,6 @@ export const registerUser = (userDate) => async (dispatch) => {
       url: CONTAINER_URL,
       data: userDate,
     });
-    console.log("data", data);
     dispatch({ type: REGISTER_USER_SUCCESS });
   } catch {}
 };
@@ -32,8 +31,10 @@ export const loginUser = (userDate) => async (dispatch) => {
       url: CONTAINER_URL,
       data: userDate,
     });
-    console.log("data", data);
+
     dispatch({ type: LOGIN_USER_SUCCESS });
+
+    return data;
   } catch {}
 };
 

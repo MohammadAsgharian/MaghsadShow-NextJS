@@ -3,7 +3,7 @@ import Link from "next/link";
 import ButtonLoader from "../../components/ButtonLoader";
 import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
-import { signIn } from "next-auth/react";
+import { signIn } from "next-auth/client";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -22,8 +22,7 @@ const Login = () => {
       Email: Email,
       Password: Password,
     };
-
-    signIn("Credentials", { ...loginDto });
+    const result = signIn("Credentials", { ...loginDto, redirect: false });
   };
 
   return (
