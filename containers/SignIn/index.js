@@ -4,14 +4,17 @@ import { toast } from "react-toastify";
 import ButtonLoader from "../../components/ButtonLoader";
 import Button from "@mui/material/Button";
 import fetchUrl from "../../Utils/fetchUrl";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../redux/actions/userActions";
 
 const SignInForm = () => {
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     Password: "",
     Email: "",
   });
   const { Password, Email } = user;
+  const { success, error, loading } = useSelector((state) => state.auth);
 
   const onChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -22,25 +25,8 @@ const SignInForm = () => {
       Email: Email,
       Password: Password,
     };
-    try {
-      setLoading(true);
-      const response = await fetchUrl("account/login", "POST", loginDto);
-      console.log("response", response);
-      setLoading(false);
-      const roles = response?.data?.roles;
-      const userName = response?.data?.username;
-      const token = response?.data?.token;
-      setEmail("");
-      setPassword("");
-    } catch (err) {
-      if (err.response?.status === 400) {
-        toast.error("Missing UserName or Password");
-      } else if (err.response?.status === 401) {
-        toast.error("Unauthorized");
-      } else {
-        toast.error("Login Failed");
-      }
-    }
+
+    dispatch(loginUser(loginDto));
   };
 
   return (

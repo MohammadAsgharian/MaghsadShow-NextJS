@@ -4,7 +4,7 @@ import ButtonLoader from "../../components/ButtonLoader";
 
 import { useRouter } from "next/router";
 import { registerUser, clearError } from "../../redux/actions/userActions";
-import { useDispatch, userDispacher, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const Register = () => {

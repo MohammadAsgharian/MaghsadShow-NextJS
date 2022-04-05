@@ -3,6 +3,8 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   CLEAR_ERRORS,
+  LOGIN_USER_REQUEST,
+  LOGIN_USER_SUCCESS,
 } from "../constants/userConstants";
 
 // Auth Reducer
@@ -11,6 +13,18 @@ export const authReducer = (
   action
 ) => {
   switch (action.type) {
+    case LOGIN_USER_REQUEST: {
+      return {
+        loading: true,
+      };
+    }
+
+    case LOGIN_USER_SUCCESS: {
+      return {
+        loading: false,
+      };
+    }
+
     case REGISTER_USER_REQUEST: {
       return {
         loading: true,
