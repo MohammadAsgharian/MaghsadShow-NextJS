@@ -3,11 +3,11 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import ButtonLoader from "../../components/ButtonLoader";
 import Button from "@mui/material/Button";
-import fetchUrl from "../../Utils/fetchUrl";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/actions/userActions";
+import { signIn } from "next-auth/react";
 
-const SignInForm = () => {
+const Login = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState({
     Password: "",
@@ -26,7 +26,7 @@ const SignInForm = () => {
       Password: Password,
     };
 
-    dispatch(loginUser(loginDto));
+    signIn("Credentials", { ...loginDto });
   };
 
   return (
@@ -63,4 +63,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default Login;

@@ -19,7 +19,7 @@ const Header = () => {
       <div className={styles.SearchBar}></div>
       <div className={styles.MenuItems}>
         <div className={styles.MenuItem}>
-          <Link href="/login">
+          <Link href="/auth/login">
             <AccountCircleIcon></AccountCircleIcon>
           </Link>
           <MenuIcon></MenuIcon>
