@@ -11,31 +11,25 @@ const Register = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [user, setUser] = useState({
-    FirstName: "",
-    LastName: "",
-    UserName: "",
     Password: "",
     Email: "",
   });
-  const { FirstName, LastNaem, UserName, Password, Email } = user;
-  const { loading } = useSelector((state) => state.auth);
+  const { Password, Email } = user;
+  const { success, error, loading } = useSelector((state) => state.auth);
 
-  // useEffect(() => {
-  //   if (success) {
-  //     router.push("/login");
-  //   }
-  //   if (error) {
-  //     toast.error(error);
-  //     dispatch(clearError());
-  //   }
-  // }, [dispatch]);
+  useEffect(() => {
+    if (success) {
+      router.push("/login");
+    }
+    if (error) {
+      toast.error(error);
+      dispatch(clearError());
+    }
+  }, [dispatch, success, error]);
 
   const submitHandler = (e) => {
-    e.preventDefualt();
+    e.preventDefault();
     const userData = {
-      FirstName,
-      LastName,
-      UserName,
       Password,
       Email,
     };
@@ -47,30 +41,6 @@ const Register = () => {
   };
   return (
     <form onSubmit={submitHandler}>
-      <label htmlFor="FirstName_field">نام</label>
-      <input
-        type="text"
-        id="FirstName_field"
-        name="FirstName"
-        value={FirstName}
-        onChange={onChange}
-      />
-      <label htmlFor="LastName_field">نام خانوادگی</label>
-      <input
-        type="text"
-        id="LastName_field"
-        name="LastName"
-        value={LastNaem}
-        onChange={onChange}
-      />
-      <label htmlFor="UserName_field">نام کاربری</label>
-      <input
-        type="text"
-        id="UserName_field"
-        name="UserName"
-        value={UserName}
-        onChange={onChange}
-      />
       <label htmlFor="Email_field">ایمیل</label>
       <input
         type="text"
@@ -90,7 +60,7 @@ const Register = () => {
         variant="contained"
         type="submit"
         title="ثبت نام"
-        loading={false}
+        loading={loading}
       ></ButtonLoader>
     </form>
   );

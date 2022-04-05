@@ -6,7 +6,10 @@ import {
 } from "../constants/userConstants";
 
 // Auth Reducer
-export const authReducer = (state = { loading: true, user: null }, action) => {
+export const authReducer = (
+  state = { success: false, error: null, loading: false, user: null },
+  action
+) => {
   switch (action.type) {
     case REGISTER_USER_REQUEST: {
       return {
@@ -15,12 +18,16 @@ export const authReducer = (state = { loading: true, user: null }, action) => {
     }
     case REGISTER_USER_SUCCESS: {
       return {
+        ...state,
         loading: false,
+        success: true,
       };
     }
     case REGISTER_USER_FAIL: {
       return {
+        ...state,
         loading: false,
+        success: false,
         error: action.payload,
       };
     }

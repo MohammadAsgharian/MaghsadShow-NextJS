@@ -1,20 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { toast } from "react-toastify";
-import ButtonLoader from "../components/ButtonLoader";
+import ButtonLoader from "../../components/ButtonLoader";
 import Button from "@mui/material/Button";
-import fetchUrl from "../Utils/fetchUrl";
+import fetchUrl from "../../Utils/fetchUrl";
 
 const SignInForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({
+    Password: "",
+    Email: "",
+  });
+  const { Password, Email } = user;
 
+  const onChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
   const submitHandler = async (e) => {
     e.preventDefault();
     const loginDto = {
-      Email: email,
-      Password: password,
+      Email: Email,
+      Password: Password,
     };
     try {
       setLoading(true);
@@ -39,14 +45,22 @@ const SignInForm = () => {
 
   return (
     <form onSubmit={submitHandler}>
-      <label htmlFor="Email">ایمیل</label>
+      <label htmlFor="Email_field">ایمیل</label>
       <input
         type="text"
-        id="Email"
-        onChange={(e) => setEmail(e.target.value)}
+        id="Email_field"
+        name="Email"
+        value={Email}
+        onChange={onChange}
       />
-      <label htmlFor="Password">رمزعبور</label>
-      <input type="password" onChange={(e) => setPassword(e.target.value)} />
+      <label htmlFor="Password_field">رمزعبور</label>
+      <input
+        type="password"
+        id="Password_field"
+        name="Password"
+        value={Password}
+        onChange={onChange}
+      />
       <ButtonLoader
         variant="contained"
         type="submit"
