@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { toast } from "react-toastify";
 import ButtonLoader from "../../components/ButtonLoader";
 import Button from "@mui/material/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../redux/actions/userActions";
+import { useSelector } from "react-redux";
 import { signIn } from "next-auth/react";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const [user, setUser] = useState({
     Password: "",
     Email: "",
