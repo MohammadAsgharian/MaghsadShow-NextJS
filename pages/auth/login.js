@@ -1,13 +1,33 @@
-import React, { Fragment } from "react";
-import _SharedLayout from "../../containers/_SharedLayout";
-import Login from "../../containers/Login";
+import { Button } from "@mui/material";
+import { getCsrfToken, signIn } from "next-auth/react";
+import React from "react";
 
-const login = () => {
+export default function SignIn({ csrfToken }) {
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const result = signIn("credentials", {
+      redirect: false,
+      email: "sadasd",
+      password: "asdasd",
+    });
+  };
   return (
-    <_SharedLayout title="ورود">
-      <Login></Login>
-    </_SharedLayout>
+    <form method="post" onSubmit={submitHandler}>
+      <div>
+        <input required name="username" type="text" />
+      </div>
+      <div>
+        <input required name="password" type="password" />
+      </div>
+      <button type="submit">Sign into Economy.id</button>
+    </form>
   );
-};
+}
 
-export default login;
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      csrfToken: await getCsrfToken(context),
+    },
+  };
+}

@@ -3,7 +3,6 @@ import Link from "next/link";
 import ButtonLoader from "../../components/ButtonLoader";
 import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
-import { signIn, useSession } from "next-auth/react";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -22,7 +21,6 @@ const Login = () => {
       Email: Email,
       Password: Password,
     };
-    const result = signIn("Custome", { ...loginDto, redirect: false });
   };
 
   return (
