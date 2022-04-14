@@ -7,10 +7,8 @@ export default NextAuth({
   },
   providers: [
     CredentialsProvider({
-      name: "credentials",
-      async authorize(credentials) {
-        alert("asdasdasdasd");
-        const { UserName = "Ali", Password = "asasd" } = user;
+      authorize: async (credentials) => {
+        const user = { UserName: "Ali", Password: "asasd" };
         if (user) {
           return Promise.resolve(user);
         }
@@ -18,14 +16,4 @@ export default NextAuth({
       },
     }),
   ],
-  callbacks: {
-    jwt: async (token, user) => {
-      user && token.user && user;
-      return Promise.resolve(token);
-    },
-    session: async (token, user) => {
-      session.user = user.user;
-      return Promise.resolve(session);
-    },
-  },
 });

@@ -505,10 +505,10 @@
     "prop-types" "^15.7.2"
     "react-is" "^17.0.2"
 
-"@mui/icons-material@^5.5.1":
-  "integrity" "sha512-40f68p5+Yhq3dCn3QYHqQt5RETPyR3AkDw+fma8PtcjqvZ+d+jF84kFmT6NqwA3he7TlwluEtkyAmPzUE4uPdA=="
-  "resolved" "https://registry.npmjs.org/@mui/icons-material/-/icons-material-5.5.1.tgz"
-  "version" "5.5.1"
+"@mui/icons-material@^5.6.1":
+  "integrity" "sha512-I1x8u+FRLOmoJpRJASMx9UG+jZrSkNLyRQmBXivQQwXu3m3iasMoaKYhhI0J18t8+FWktbkNTp63oEUHE9Gw0Q=="
+  "resolved" "https://registry.npmjs.org/@mui/icons-material/-/icons-material-5.6.1.tgz"
+  "version" "5.6.1"
   dependencies:
     "@babel/runtime" "^7.17.2"
 
@@ -708,7 +708,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8.6 || ^17.0.0":
+"@types/react@*", "@types/react@^16.8.6 || ^17.0.0", "@types/react@^17.0.0 || ^18.0.0":
   "integrity" "sha512-8Q+LNpdxf057brvPu1lMtC5Vn7J119xrP1aq4qiaefNioQUYANF/CYeK4NsKorSZyUGJ66g0IM+4bbjwx45o2A=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.43.tgz"
   "version" "17.0.43"
@@ -1062,6 +1062,11 @@
   dependencies:
     "@babel/runtime" "^7.8.3"
     "is-in-browser" "^1.0.2"
+
+"cssjanus@^2.0.1":
+  "integrity" "sha512-kAijbny3GmdOi9k+QT6DGIXqFvL96aksNlGr4Rhk9qXDZYWUojU4bRc3IHWxdaLNOqgEZHuXoe5Wl2l7dxLW5g=="
+  "resolved" "https://registry.npmjs.org/cssjanus/-/cssjanus-2.1.0.tgz"
+  "version" "2.1.0"
 
 "csstype@^2.5.2":
   "integrity" "sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA=="
@@ -2341,7 +2346,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@*", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^17.0.0", "react@^17.0.2", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.6.0", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^16.8.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^17.0.0", "react@^17.0.0 || ^18.0.0", "react@^17.0.2", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.6.0", "react@>=16.8.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -2558,6 +2563,18 @@
   "integrity" "sha512-+PIZ/6Uk40mphiQJJI1202b+/dYeTVd9ZnMPR80pgiWbjIwvN2zIp4r9et0BgqBuShh48I0gttPlAXA7WVvBxw=="
   "resolved" "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.0.1.tgz"
   "version" "5.0.1"
+
+"stylis-plugin-rtl@^2.1.1":
+  "integrity" "sha512-q6xIkri6fBufIO/sV55md2CbgS5c6gg9EhSVATtHHCdOnbN/jcI0u3lYhNVeuI65c4lQPo67g8xmq5jrREvzlg=="
+  "resolved" "https://registry.npmjs.org/stylis-plugin-rtl/-/stylis-plugin-rtl-2.1.1.tgz"
+  "version" "2.1.1"
+  dependencies:
+    "cssjanus" "^2.0.1"
+
+"stylis@^4.1.0", "stylis@4.x":
+  "integrity" "sha512-SrSDzNasOCBTo7C2N9geFwydg/2bmdkWXd4gJirtq82m5JBYtR2+Ialck8czmfBLIdPxCOotlgJESPa8C1RqvA=="
+  "resolved" "https://registry.npmjs.org/stylis/-/stylis-4.1.0.tgz"
+  "version" "4.1.0"
 
 "stylis@4.0.13":
   "integrity" "sha512-xGPXiFVl4YED9Jh7Euv2V220mriG9u4B2TA6Ybjc1catrstKD2PpIdU3U0RKpkVBC2EhmL/F0sPCr9vrFTNRag=="

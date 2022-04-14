@@ -1,60 +1,87 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import ButtonLoader from "../../components/ButtonLoader";
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import { useSelector } from "react-redux";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
-const Login = () => {
-  const [user, setUser] = useState({
-    Password: "",
-    Email: "",
-  });
-  const { Password, Email } = user;
-  const { success, error, loading } = useSelector((state) => state.auth);
+import { signIn } from "next-auth/react";
 
-  const onChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const loginDto = {
-      Email: Email,
-      Password: Password,
-    };
+export default function Login() {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      Email: data.get("Email"),
+      Password: data.get("Password"),
+    });
+
+    const res = await signIn("credentials", { redirect: false });
+    console.log("result", res);
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <label htmlFor="Email_field">ایمیل</label>
-      <input
-        type="text"
-        id="Email_field"
-        name="Email"
-        value={Email}
-        onChange={onChange}
-      />
-      <label htmlFor="Password_field">رمزعبور</label>
-      <input
-        type="password"
-        id="Password_field"
-        name="Password"
-        value={Password}
-        onChange={onChange}
-      />
-      <ButtonLoader
-        variant="contained"
-        type="submit"
-        title="ورود"
-        loading={loading}
-      ></ButtonLoader>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 8,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <LockOutlinedIcon />
+        </Avatar>
 
-      <Link href="/register">
-        <Button variant="contained" color="success">
-          ثبت نام
-        </Button>
-      </Link>
-    </form>
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="Email"
+            label="ایمیل"
+            name="Email"
+            autoFocus
+          />
+          <TextField
+            required
+            fullWidth
+            name="Password"
+            label="رمزعبور"
+            type="password"
+            id="Password"
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                فراموشی رمز عبور
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link href="#" variant="body2">
+                {"ثبت نام"}
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </Container>
   );
-};
-
-export default Login;
+}
