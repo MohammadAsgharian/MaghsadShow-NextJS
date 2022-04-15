@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <_SharedLayout title="صفحه اصلی">
       <Header />
+      <Card />
     </_SharedLayout>
   );
 }

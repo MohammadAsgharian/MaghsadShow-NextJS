@@ -13,6 +13,7 @@ const isAuthenticatedUser = catchAsyncError(async (req, res, next) => {
       error: null,
     });
   }
+  next();
 });
 
 export { isAuthenticatedUser };

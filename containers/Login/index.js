@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,7 +12,6 @@ import Container from "@mui/material/Container";
 import { signIn } from "next-auth/react";
 
 export default function Login() {
-  const dispatch = useDispatch();
   const handleSubmit = async (event) => {
     event.preventDefault();
     // const user = new FormData(event.currentTarget);

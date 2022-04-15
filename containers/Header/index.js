@@ -1,9 +1,11 @@
+import React, { useState, useEffect } from "react";
+
 import Image from "next/image";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadUser } from "../../redux/actions/userActions";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import AppBar from "@mui/material/AppBar";
@@ -53,12 +55,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["هتل", "رستوران", "بوم گردی"];
+const settings = ["حساب کاربری", "خروج"];
 
 const Header = () => {
-  const { data: session } = useSession();
-  console.log(session);
+  const dispatch = useDispatch();
+  const { isAuthentication } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch]);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
