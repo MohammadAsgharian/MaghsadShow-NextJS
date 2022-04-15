@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,10 +11,11 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-
+import { loginUser } from "../../redux/actions/userActions";
 import { signIn } from "next-auth/react";
 
 export default function Login() {
+  const dispatch = useDispatch();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -21,9 +23,13 @@ export default function Login() {
       Email: data.get("Email"),
       Password: data.get("Password"),
     });
-
+    const user = {
+      Email: "m.asgharian@gmail.com",
+      Password: "Mass@3541740.123",
+    };
+    const result = await loginHandler(user);
     const res = await signIn("credentials", { redirect: false });
-    console.log("result", res);
+    console.log("result", result);
   };
 
   return (

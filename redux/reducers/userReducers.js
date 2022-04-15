@@ -3,25 +3,34 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   CLEAR_ERRORS,
-  LOGIN_USER_REQUEST,
-  LOGIN_USER_SUCCESS,
+  LOAD_USER_REQUEST,
+  LOAD_USER_SUCCESS,
 } from "../constants/userConstants";
 
 // Auth Reducer
 export const authReducer = (
-  state = { success: false, error: null, loading: false, user: null },
+  state = {
+    success: false,
+    error: null,
+    loading: false,
+    isAuthentication: false,
+    user: null,
+  },
   action
 ) => {
   switch (action.type) {
-    case LOGIN_USER_REQUEST: {
+    case LOAD_USER_REQUEST: {
       return {
         loading: true,
+        isAuthentication: false,
       };
     }
 
-    case LOGIN_USER_SUCCESS: {
+    case LOAD_USER_SUCCESS: {
       return {
         loading: false,
+        isAuthentication: true,
+        user: action.payload,
       };
     }
 

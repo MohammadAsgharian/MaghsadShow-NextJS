@@ -7,3 +7,5 @@ const isAuthenticatedUser = catchAsyncError(async (req, res, next) => {
   req.user = session.user;
   next();
 });
+
+export { isAuthenticatedUser };
