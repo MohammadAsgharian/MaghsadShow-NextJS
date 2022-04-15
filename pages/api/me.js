@@ -5,8 +5,8 @@ import { isAuthenticatedUser } from "../../middlewares/auth";
 const handler = nc({
   onError: (err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).end("Something broke!");
+    res.status(400).end("Something broke!");
   },
-}).post(isAuthenticatedUser);
+}).get(isAuthenticatedUser);
 
 export default handler;

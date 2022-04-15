@@ -1,35 +1,43 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { loginUser } from "../../redux/actions/userActions";
 import { signIn } from "next-auth/react";
 
 export default function Login() {
   const dispatch = useDispatch();
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      Email: data.get("Email"),
-      Password: data.get("Password"),
-    });
-    const user = {
+    // const user = new FormData(event.currentTarget);
+    // console.log({
+    //   Email: data.get("Email"),
+    //   Password: data.get("Password"),
+    // });
+    const data = {
       Email: "m.asgharian@gmail.com",
       Password: "Mass@3541740.123",
     };
-    const result = await loginHandler(user);
-    const res = await signIn("credentials", { redirect: false });
-    console.log("result", result);
+    // const CONTAINER_URL = `${process.env.API_URL}account/login/`;
+    // const { data } = await axios({
+    //   method: "post",
+    //   url: CONTAINER_URL,
+    //   data: user,
+    // });
+
+    const res = await signIn("credentials", {
+      redirect: false,
+      Email: data.Email,
+      Password: data.Password,
+    });
+    console.log("result", res);
   };
 
   return (
