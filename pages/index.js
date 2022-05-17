@@ -1,11 +1,14 @@
 import Header from "../containers/Header";
 import _SharedLayout from "../containers/_SharedLayout";
+import BannerAttration from "../containers/Banner-Attration";
+
+import CardSm from "../components/Card/CardSm";
 
 export default function Home() {
   return (
     <_SharedLayout title="صفحه اصلی">
       <Header />
-      <Card />
+      <BannerAttration />
     </_SharedLayout>
   );
 }

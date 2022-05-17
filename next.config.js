@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ["api.maghsadshow.com"],
+  },
   env: {
     API_URL: "https://api.maghsadshow.com/api/",
     SECRET: "LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx6gts=",
